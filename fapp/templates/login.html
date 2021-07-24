@@ -1,0 +1,71 @@
+{%extends 'main.html'%}
+{%load static%}
+{%block data%}
+
+			<title>My Project</title>
+            <style>
+                .body{
+                    box-sizing: border-box;
+                    
+                }
+                .loginForm{
+                    box-shadow: 10px 10px 20px rgb(167, 167, 167);
+                    background-image: linear-gradient(to top,#FAEFEF,#E7CCCC,#BE8989);
+                    margin: 0px 0px 0px 146px;
+                    border-radius: 20px;
+                    width: 350px;
+                    height: 400px;
+                    display: inline-block;
+                    padding-top: 5%;
+                    align-items: center;
+                }
+                .loginForm input{
+                    margin:10% 0px 0px 20% ;
+                    border-radius: 5px;
+                    width: 200px;
+                    border-style: outset;
+                }
+                .reg{
+                    
+                    display: inline;
+                    margin:0px 0px 0px 61%;
+                   
+                }
+                
+                h4{
+                    text-align: center;
+                    color: red;
+                }
+                .log{
+                    border: 1px solid;
+                }
+            </style>
+	  </head>
+      <body>
+        
+            <div class="container body">
+                <div class="row">
+    
+                    <div class="col-md-12">
+                        <img src="{%static 'images/tech.jpg'%}" alt="" width="500px" height="500px">
+                        
+                        <form method="POST" class="loginForm">
+                            {%csrf_token%}
+                            
+                            <h4>{{msg}}</h4>
+                            <div>
+                                <input type="text" name="username" placeholder="username"><br>
+                                <input type="password" name="password" placeholder="Password"><br>
+                                <input type="submit" value="LOGIN" class="btn btn-danger">
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="col-md-12 reg">
+                        <h5>Don't Have Account?<a href="register" class="">Register</a></h5>
+                    </div>
+                </div>
+            </div>
+{%endblock%}          
+

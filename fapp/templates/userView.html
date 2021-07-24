@@ -1,0 +1,64 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block main%}
+{%if user.is_authenticated%}
+
+
+
+    <style>
+       .main{
+           margin-top: 5%;
+           border-radius: 10px;
+           border-color: #A75E5E ;
+           width: 60%;
+           
+           margin: 5% 0px 0px 20%;
+       }
+       .user{
+         color: #C84E4E ;
+         
+         font-size: 29px;
+       }
+       .btns{
+         margin: 10px 0px 0px 68%;
+       }
+       
+    </style>
+
+        
+    
+ 
+
+{%for i in sp%}  
+    <div class="card mt-4 main">
+        <i class="bi bi-clock-fill">&nbsp;</b>{{i.date}}</b></i>
+        <h3 class="user badge bg-light">{{i.user|capfirst}}</h3>
+        <hr>
+
+      <img class="card-img-top img-fluid img-thumbnail" src="{{i.img}}" alt="" >
+      <div class="card-body">
+        <hr>
+        <h3 class="card-title">{{i.name}}</h3>
+        <p class="card-text lead">{{i.description}}</p>
+        
+        <div class="btns">
+        <a href="comment?pid={{i.id}}" class="btn btn-danger">Comment</a>
+        
+        <p class="para"></p>
+        </div>
+      </div>
+      
+    </div>
+{%endfor%}
+{%endif%}
+
+
+
+
+{%endblock%}
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+{%extends 'main.html'%}
+{%block data%}
+{%include 'navbar.html'%}
+
+<style>
+
+    form{
+        
+        font: 20px garamond;
+        box-sizing: border-box;
+        background-image: linear-gradient(to bottom right,#E5E8E8,#CCD1D1,#99A3A4);
+        color: #2471A3;
+        border-radius: 20px;
+        
+        margin: 90% 30% 0px 30%;
+        padding: 40px 20px 20px 20px;
+        font-weight: 500;
+    }
+    .btn{
+        margin: 40px 0px 0px 0px;
+        width: 100%;
+        background-image: linear-gradient(to top left,#5D6D7E,#34495E,#283747);
+        border-radius: 10px;
+        color: #F0F3F4;
+        text-transform: capitalize;
+        font-size: 20px;
+    }
+    input,textarea,label{
+      font:px garamond ;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    input{
+      overflow: hidden;
+      width: 70%;
+      
+    }
+</style>
+<form method="POST" enctype="multipart/form-data" class="form-group mt-4 mb-2">
+{%csrf_token%}
+  <table>
+    <tr>
+      {{reg.as_table}}
+
+    </tr>
+  </table>
+      <input type="submit" value="submit" class="btn">
+  
+</form>
+{%include 'footer.html'%}
+
+{%endblock%}
+

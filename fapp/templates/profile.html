@@ -1,0 +1,58 @@
+{%extends 'main.html'%}
+{%block data%}
+{%include 'navbar.html'%}
+
+{%for e in regi%}
+<style>
+    .main{
+        
+        border:1px solid grey;
+        margin: 30px 25% 0px 25%;
+    }
+    .main a{
+        margin: 5px 0px 5px 38px;
+        width: 15%;
+        
+    }
+    .cards{
+        width: 27%;
+        margin: 30px 25% 0px 36%;
+        
+    }
+
+</style>
+<div class="main">
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-light">Profile Pic: <img src="{{e.img}}" width="100px" height="100px"></li>
+        <li class="list-group-item list-group-item-light">Login Name:<b> {{e.username}}</b></li>
+        <li class="list-group-item list-group-item-light">First Name:<b> {{e.first_name}}</b></li>
+        <li class="list-group-item list-group-item-light">Last Name:<b> {{e.last_name}}</b></li>
+        <li class="list-group-item list-group-item-light">Age:<b> {{e.age}}</b></li>
+        <li class="list-group-item list-group-item-light">Date:<b> {{e.date}}</b><br>Account Created on</li>
+        <li class="list-group-item list-group-item-light">Email:<b> {{e.email}}</b></li>
+        
+    </ul>
+    
+    <a href="e_usr?id={{e.id}}" class="btn btn-primary">Edit</a>
+</div>
+{%endfor%}
+
+
+{%for i in usrp%}
+<div class="card mt-4 cards">
+    <i class="bi bi-clock-fill">&nbsp;</b>{{i.date}}</b></i>
+    <h3>{{i.user}}</h3>
+    <hr>
+
+  <img class="card-img-top img-fluid " src="{{i.img}}" alt="" >
+  <div class="card-body">
+    <hr>
+    <h3 class="card-title">{{i.name}}</h3>
+    <p class="card-text">{{i.description}}</p>
+    <a href="d_post?id={{i.id}}" class="btn btn-warning">Delete</a>
+    <a href="e_post?id={{i.id}}" class="btn btn-warning">Edit</a>
+  </div>
+</div>
+{%endfor%}
+{%include 'footer.html'%}
+{%endblock%}

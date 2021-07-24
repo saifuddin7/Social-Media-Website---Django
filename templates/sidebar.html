@@ -1,0 +1,41 @@
+{%load static%}
+<style>
+  .body{
+    background-image: url("{%static 'images/fr.jpg'%}");
+    border-style: outset;
+  }
+    video{
+      height: 8%;
+      width: 112%
+    }
+    p{
+      font-size: 30px;
+      margin: 5px 0px 0px 18px;
+      padding-top: 16px;
+    }
+    h5{
+      margin:30px 0px 0px 0px;
+      text-decoration: none;
+      color: #6E2C00;
+      text-transform: capitalize;
+      
+    }
+</style>
+<div class="col-lg-3 body">
+    <p class="my-4" style="color: #FBE2FE;">{{user.first_name|capfirst}} &nbsp;{{user.last_name|capfirst}}</p>
+    
+    <div class="list-group">
+      <h4 class="list-group-item">Sort</h4>
+      {%for i in po_name%}
+      <h5><a href="sort?data={{i}}" class="">{{i}}</a></h5>
+      {%endfor%}
+      <h5><a href="https://weather.com/en-IN/" class=""><i class="bi bi-calendar-event">&nbsp;Events</i></a></h5>
+      <h5><a href="https://www.oneindia.com/games/" class=""><i class="bi bi-joystick">&nbsp;Play Games</i></a></h5>
+      <h5><a href="https://weather.com/en-IN/" class=""><i class="bi bi-sun-fill">&nbsp;Weather</i></a></h5>
+      
+      
+      
+    </div>
+    
+  </div>
+ 

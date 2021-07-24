@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shop Homepage - Start Bootstrap Template</title>
+    
+    
+    {%include 'main.html'%}
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    {%include 'navbar.html'%}
+   
+    <!-- Page Content -->
+    <div class="container bg-light">
+
+        <div class="row">
+
+           <!--SideBar-->
+           {%include 'sidebar.html'%}
+            <!-- /.col-lg-3 -->
+
+            <div class="col-lg-9">
+
+              <!--SLIDER-->
+              {%block main%}
+
+              {%endblock%}
+                <!-- /.row -->
+
+            </div>
+            <!-- /.col-lg-9 -->
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    {%include 'footer.html'%}
+
+    <!-- Bootstrap core JavaScript -->
+  
+
+</body>
+
+</html>

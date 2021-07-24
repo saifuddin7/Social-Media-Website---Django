@@ -1,0 +1,68 @@
+{%extends 'main.html'%}
+{%load static%}
+{%block data%}
+{%include 'navbar.html'%}
+{%for e in sp%}
+<style>
+   
+    .img{
+        width: 40%;
+       
+        margin: 47px 0px 0px 29%;
+    }
+    form{
+        margin: 20px 31% 0px 29%;
+        
+        border-radius: 38px;
+        padding: 0px 9% 0px 6%;
+        align-items: center;
+       
+    }
+    button{
+        margin: 0px 0px 44px -5px;
+        height: 54px;
+    }
+    
+    .comment{
+        padding: 0px;
+        margin: 5px 0px 0px 30%;
+        word-wrap    : break-word;
+        overflow-wrap: break-word;
+    }
+    .del{
+        float: right;
+    }
+    .send_cmnt{
+        margin-top: 20px;
+    }
+</style>
+    <div class="container-fluid main">
+        <div class="row">
+            <img src="{{e.img}}" alt="" class="img img-fluid img-thumbnail" >
+            <div class="col-md-12">
+                <form method="POST" class="shadow-lg p-3 mb-5 bg-body rounded">
+                    {%csrf_token%}
+                    {%for i in inc%}
+                    <div class="comment">
+                        <span class="text-center"><b>{{i.user|capfirst}}</b></span><br>
+                        <span class="text-center ">{{i.comment}}</span>
+                        <a href="d_cmnt?id={{i.id}}" class="del btn btn-warning">Delete</a>
+                    </div>
+                    
+                    <hr>
+                    {%endfor%}
+                    
+                    <div class="send_cmnt input-group ">
+                        <textarea class="form-control" name="comment" id="comment" rows="1" aria-label="With textarea"></textarea>
+                        <button type="submit" class="input-group-text btn btn-info">Send</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    
+{%endfor%}
+{%include 'footer.html'%}
+{%endblock%}

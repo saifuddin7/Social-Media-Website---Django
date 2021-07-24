@@ -1,0 +1,56 @@
+{%load static%}
+<style>
+    nav{
+        background-image: linear-gradient(to bottom right,#FFFFFF ,#FFFFFF,#F98383 );
+        
+    }
+  
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">{%if user.is_authenticated%} <img src="{%static 'images/logo.jpg'%}" alt="" width="80px" height="50px">{%endif%}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                {%if user.is_authenticated%} 
+                
+                <li class="nav-item active">
+                    <a class="nav-link" href="index">Index</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="user_posts">Post</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="profile">Profile</a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link" href="logout" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout">Logout</a>
+                </li>
+                {%for i in regi%}
+                <li class="nav-item">
+                    <img src="{{i.img}}" alt="" width="50px" height="50px">
+                </li>
+                {%endfor%}
+               
+               {%else%}
+                <li class="nav-item">
+                    <a class="nav-link" href="register">Register</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="login" >Login</a>
+                </li>
+                {%endif%}
+                
+                
+         
+                
+            </ul>
+        </div>
+    </div>
+</nav>
